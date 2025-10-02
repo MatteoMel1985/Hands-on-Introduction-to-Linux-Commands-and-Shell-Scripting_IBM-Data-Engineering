@@ -171,3 +171,60 @@ ls -l backup.sh
 
 4. Take a screenshot of the output of the command above and save it as `15-executable.jpg` or `.png`.
 
+# Task 16  
+
+1. Download the following .zip file with the wget command:
+
+```bash
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/important-documents.zip
+```
+
+2. Unzip the archive file:
+
+```bash
+unzip -DDo important-documents.zip
+```
+
+*Note: `-DDo` overwrites without restoring original modified date.*
+
+3. Update the file’s last-modified date to now:
+
+```bash
+touch important-documents/*
+```
+
+4. Test your script using the following command:
+
+```bash
+./backup.sh important-documents .
+```
+
+*This should have created a file called `backup-[CURRENT_TIMESTAMP].tar.gz` in your current directory.*  
+
+5. Take a screenshot of the output of ls -l and save it as `16-backup-complete.jpg` or `.png`.
+
+# Task 17  
+
+1. Copy the `backup.sh` script into the `/usr/local/bin/` directory. (Do not use mv.)  
+
+2. Test the cronjob to see if the backup script is getting triggered by scheduling it for every 1 minute.  
+
+3. Please note that since the Theia Lab is a virtual environment, we need to explicitly start the cron service using the below command:  
+
+```bash
+sudo service cron start
+```
+
+4. Once the cron service is started, check in the directory `/home/project` to see if the `.tar` files are being created.
+
+5. If they are, then stop the cron service using the below command, otherwise it will continue to create `.tar` files every minute:
+
+```bash
+sudo service cron stop
+```
+
+6. Using crontab, schedule your `/usr/local/bin/backup.sh` script to backup the `important-documents` folder every 24 hours to the directory `/home/project`.
+
+7. Take a screenshot of the output of `crontab -l` and save as `17-crontab.jpg` or `.png`.
+
+# Author: [Matteo Meloni](https://www.linkedin.com/in/matteo-meloni-40a357154/)
