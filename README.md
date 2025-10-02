@@ -28,7 +28,7 @@ Take a screenshot of the code above and save it as `01-Set_Variables.jpg` or `.p
 # Task 2  
 
 1. Display the values of the two command line arguments in the terminal.
-2. ake a screenshot of the code above and save it as `02-Display_Values.jpg` or `.png`.
+2. Take a screenshot of the code above and save it as `02-Display_Values.jpg` or `.png`.
 
 # Task 3  
 
@@ -109,3 +109,31 @@ This will be useful later in the script where you will pass the array `$toBackup
 ```
 3. Take a screenshot of the code above and save it as `10-IF_Statement.jpg` or `.png`.
 
+# Task 11  
+
+1. In the `if-then` statement, add the `$file` that was updated in the past 24-hours to the `toBackup` array.
+2. Since much of this wasn’t covered in the course, you may copy the code below and place after the `then` statement for this task:
+
+```bash
+toBackup+=($file)
+```
+
+3. Take a screenshot of the code above and save it as `11-Add_File.jpg` or `.png`.
+
+# Task 12  
+
+1. After the `for` loop, compress and archive the files, using the `$toBackup` array of filenames, to a file with the name `backupFileName`.
+2. Take a screenshot of the code above and save it as `12-Create_Backup.jpg` or `.png`.
+
+# Task 13  
+
+1. Now the file `$backupFileName` is created in the current working directory.  
+
+<details>
+<summary><b>Hint</b></summary>
+
+*Move the file `backupFileName` to the destination directory located at `destAbsPath`.*
+
+</details>  
+
+2. Take a screenshot of the code above and save it as `13-Move_Backup.jpg` or `.png`.
