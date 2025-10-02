@@ -130,10 +130,44 @@ toBackup+=($file)
 1. Now the file `$backupFileName` is created in the current working directory.  
 
 <details>
-<summary><b>Hint</b></summary>
+<summary>Hint</summary>
 
-*Move the file `backupFileName` to the destination directory located at `destAbsPath`.*
+<br>
 
+*Move the file `backupFileName` to the destination directory located at `destAbsPath`.*  
+<br>
 </details>  
 
 2. Take a screenshot of the code above and save it as `13-Move_Backup.jpg` or `.png`.
+
+# Task 14  
+
+1. Save the current working file `backup.sh` with `CTRL` + `s` [Windows/Linux], `CMD` + `s` [MAC] or by navigating to File->Save as shown below:  
+
+![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-save.png)  
+
+2. Download the file to your local computer by navigating to File->Download as seen below:  
+
+![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-download.png)  
+
+
+# Task 15  
+
+1. Open a new terminal by clicking on the menu bar and selecting Terminal->New Terminal, as in the image below:  
+
+![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/new-terminal.png)  
+
+This will open a new terminal at the bottom of the screen as seen below:  
+
+![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/terminal_bottom_screen.png)  
+
+2. Save the `backup.sh` file you're working on and make it executable.
+
+3. Verify the file is executable using the `ls` command with the `-l` option:  
+
+```bash
+ls -l backup.sh
+```
+
+4. Take a screenshot of the output of the command above and save it as `15-executable.jpg` or `.png`.
+
