@@ -15,11 +15,11 @@ Once run, `backup.sh` should be visible in the Explorer pane on the upper-left s
 
 3. Open the file in the IDE by clicking File->Open as seen below:
 
-![Open](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-open.png)  
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-open.png" alt="Open" width="40%">
 
-then click on the file, which should have been downloaded to the project directory:  
+then click on the file, which should have been downloaded to the project directory:
 
-![Backup](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/prompt-open.png)  
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/prompt-open.png" alt="Open" width="30%">
 
 Once `backup.sh` is open, the script below will be visualised in the text editor of the IDE.  
 
@@ -94,5 +94,5 @@ done
 # Congratulations! You completed the final project for this course!
 ```
 
-Our job is to fill all its 13 tasks. 
+Our job is to fulfil all its 13 + 4 additional tasks. 
 
