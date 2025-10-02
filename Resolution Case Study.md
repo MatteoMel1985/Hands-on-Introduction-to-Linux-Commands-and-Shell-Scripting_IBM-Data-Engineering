@@ -1,6 +1,6 @@
 # Getting Started  
 
-## ***Task 0***  
+# ***Task 0***  
 
 1. Open a new terminal by clicking on the menu bar and selecting Terminal->New Terminal.
   
