@@ -43,3 +43,69 @@ Take a screenshot of the code above and save it as `01-Set_Variables.jpg` or `.p
 
 2. Take a screenshot of the code above and save it as `04-Set_Value.jpg` or `.png`.
 
+# Task 5  
+
+1. Define a variable called `origAbsPath` with the absolute path of the current directory as the variable's value.
+2. Take a screenshot of the code above and save it as `05-Define_Variable.jpg` or `.png`.
+
+# Task 6  
+
+1. Define a variable called `destAbsPath` whose value equals the absolute path of the destination directory.
+2. Take a screenshot of the code above and save it as `06-Define_Variable.jpg` or `.png`.
+
+# Task 7  
+
+1. Change directories from the current working directory to the target directory `targetDirectory`.
+2. Take a screenshot of the code above and save it as `07-Change_Directory.jpg` or `.png`.
+
+# Task 8  
+
+1. Define a numerical variable called `yesterdayTS` as the timestamp (in seconds) 24 hours prior to the current timestamp, `currentTS`.
+2. Take a screenshot of the code above and save it as `08-YesterdayTS.jpg` or `.png`.
+
+# Note on Arrays
+
+In the script, you will notice the line:  
+
+```bash
+declare -a toBackup
+```
+
+This line declares a variable called `toBackup`, which is an array. An array contains a list of values, and you can append items to arrays using the following syntax:  
+
+```bash
+myArray+=($myVariable)
+```
+
+When you print or `echo` an array, you will see its string representation, which is simply all of its values separated by spaces:  
+
+```bash
+$ declare -a myArray
+$ myArray+=("Linux")
+$ myArray+=("is")
+$ myArray+=("cool!")
+$ echo ${myArray[@]}
+Linux is cool!
+```
+
+This will be useful later in the script where you will pass the array `$toBackup`, consisting of the names of all files that need to be backed up, to the `tar` command. This will archive all files at once!
+
+# Task 9  
+
+1. In the for loop, use the wildcard to iterate over all files and directories in the current folder.
+2. Take a screenshot of the code above and save it as `09-List_AllFilesandDirectoriess.jpg` or `.png`.
+
+# Task 10  
+
+1. Inside the `for` loop, you want to check whether the `$file` was modified within the last 24 hours.
+
+   * To get the last-modified date of a file in seconds, use `date -r $file +%s` then compare the value to `yesterdayTS`.
+   * if `[[ $file_last_modified_date -gt $yesterdayTS ]]` then the file was updated within the last 24 hours!
+
+2. Since much of this wasn't covered in the course, for this task you may copy the code below and paste it into the double square brackets `[[]]`:
+
+```bash
+`date -r $file +%s` -gt $yesterdayTS
+```
+3. Take a screenshot of the code above and save it as `10-IF_Statement.jpg` or `.png`.
+
