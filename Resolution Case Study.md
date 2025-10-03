@@ -154,3 +154,30 @@ fi
 
 * `if [[ ! -d $1 ]] || [[ ! -d $2 ]]`
     * `-d` tests whether the operand is an existing directory.
+    * `!` negates the test.
+    * `||` is logical OR: if either `$1` or `$2` is not a directory, the condition is true.
+    * `$1` and `$2` are special parameters known as positional parameters in Shell scripting. They represent the command-line arguments passed to the script when it is executed. `$1` refers to the first argument provided in the code, whereas `$2` references the second.
+    * `then` enters error branch.
+    * `echo "Invalid directory path provided"` prints the error.
+    * `exit`, again, exits with the last command’s status.
+    * `fi` also, as seen before, indicates the end of an `if` statement.
+ 
+## ***Task 1 - Assign Arguments to Named Variables***
+
+Finally, we can proceed with the accomplishment of our first task. As we are requested to set two variables equal to the values of the first and second command line arguments, given that the previous `if` statements quote `if [[ ! -d $1 ]] || [[ ! -d $2 ]]`, we can simply equate variable 1 to `$1` and variable 2 to `$2` as follows:  
+
+```bash
+# [TASK 1]
+targetDirectory=$1
+destinationDirectory=$2
+```
+
+Following is the `01-Set_Variables.jpg` screenshot that was requested to be uploaded for the completion of Task 1. 
+
+![01-Set_Variables.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/01-Set_Variables.jpg?raw=true)  
+
+# ***Task 2***  
+
+
+
+  
