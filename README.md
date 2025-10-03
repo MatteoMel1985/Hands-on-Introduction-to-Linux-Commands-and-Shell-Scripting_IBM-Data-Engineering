@@ -144,22 +144,21 @@ toBackup+=($file)
 
 1. Save the current working file `backup.sh` with `CTRL` + `s` [Windows/Linux], `CMD` + `s` [MAC] or by navigating to File->Save as shown below:  
 
-![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-save.png)  
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-save.png" alt="Open" width="30%">
 
 2. Download the file to your local computer by navigating to File->Download as seen below:  
 
-![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-download.png)  
-
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/file-download.png" alt="Open" width="30%">
 
 # Task 15  
 
 1. Open a new terminal by clicking on the menu bar and selecting Terminal->New Terminal, as in the image below:  
 
-![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/new-terminal.png)  
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/new-terminal.png" alt="Open" width="50%">
 
 This will open a new terminal at the bottom of the screen as seen below:  
 
-![image](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/terminal_bottom_screen.png)  
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/terminal_bottom_screen.png" alt="Open" width="50%">
 
 2. Save the `backup.sh` file you're working on and make it executable.
 
