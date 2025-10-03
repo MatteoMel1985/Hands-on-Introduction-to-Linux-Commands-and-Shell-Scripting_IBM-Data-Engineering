@@ -178,6 +178,18 @@ Following is the `01-Set_Variables.jpg` screenshot that was requested to be uplo
 
 # ***Task 2***  
 
+The resolution of this task is still quite simple, as we are requested to display the values of the two command line arguments in the terminal. Since the provided code structure quotes `echo ""`, which already tells us that the values inserted between `""` will be printed, we can simply instruct the machine to print the following:  
 
+```bash
+# [TASK 2]
+echo "targetDirectory is $1"
+echo "destinationDirectory is $2"
+```
+
+Following is the `02-Display_Values.jpg` screenshot that was requested to be uploaded for the completion of Task 2.  
+
+![02-Display_Values.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/02-Display_Values.jpg?raw=true)  
+
+# ***Task 3***
 
   
