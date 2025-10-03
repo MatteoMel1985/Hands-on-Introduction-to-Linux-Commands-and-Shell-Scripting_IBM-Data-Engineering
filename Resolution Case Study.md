@@ -141,3 +141,16 @@ fi
 * `exit` exits the script, while
 * `fi` indicates the end of an `if` statement.
 
+## ***Directory Path Validation***  
+
+```bash
+# This checks if argument 1 and argument 2 are valid directory paths
+if [[ ! -d $1 ]] || [[ ! -d $2 ]]
+then
+  echo "Invalid directory path provided"
+  exit
+fi
+```
+
+* `if [[ ! -d $1 ]] || [[ ! -d $2 ]]`
+    * `-d` tests whether the operand is an existing directory.
