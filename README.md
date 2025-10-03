@@ -154,11 +154,11 @@ toBackup+=($file)
 
 1. Open a new terminal by clicking on the menu bar and selecting Terminal->New Terminal, as in the image below:  
 
-<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/new-terminal.png" alt="Open" width="50%">
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/new-terminal.png" alt="Open" width="40%">
 
 This will open a new terminal at the bottom of the screen as seen below:  
 
-<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/terminal_bottom_screen.png" alt="Open" width="50%">
+<img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/images/terminal_bottom_screen.png" alt="Open" width="40%">
 
 2. Save the `backup.sh` file you're working on and make it executable.
 
