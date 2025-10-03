@@ -94,5 +94,50 @@ done
 # Congratulations! You completed the final project for this course!
 ```
 
-Our job is to fulfil all its 13 + 4 additional tasks. 
+Our job is to fulfil all its 13 + 4 additional tasks.  
+
+# ***Task 1***  
+
+We are now requested to set two variables equal to the values of the first and second command line arguments; however, before accomplising this job, I believe it is key to explain all the code, line-by-line, until the `# [TASK 1]` section.  
+
+## ***Shebang: Choosing the Shell***  
+
+```bash
+#!/bin/bash
+```
+
+* The very first line is the shebang. It tells the operating system which program should interpret the rest of the file when you execute it.
+* `/bin/bash` is the absolute path to the Bash shell binary.  
+
+### ***Note***  
+
+* On many Linux systems, /bin/bash exists; on some systems (e.g., certain BSDs or niche distros), Bash may live elsewhere. A more portable pattern is:
+
+```bash
+#!/usr/bin/env bash
+```
+
+which asks the environment to locate `bash` on the user’s `PATH`.  
+
+## ***Argument Count Validation***  
+
+```bash
+# This checks if the number of arguments is correct
+# If the number of arguments is incorrect ( $# != 2) print error message and exit
+if [[ $# != 2 ]]
+then
+  echo "backup.sh target_directory_name destination_directory_name"
+  exit
+fi
+```
+
+* Everything written in the same line after the symbol `# ...` relates exclusively to comments whose function is to describe the process. The machine won't process these lines.
+* `if [[ $# != 2 ]]`  
+    * `[[ ... ]]` is Bash’s advanced test construct (safer than `[ ... ]`), avoiding unwanted globbing/word-splitting.
+    * `$#` expands to the number of positional arguments passed to the script.
+    * `!=` here performs string inequality inside `[[ ... ]]`.
+* `then` begins the “true” branch.
+* `echo "backup.sh target_directory_name destination_directory_name"` prints a usage hint.
+* `exit` exits the script, while
+* `fi` indicates the end of an `if` statement.
 
