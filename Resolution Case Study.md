@@ -192,4 +192,21 @@ Following is the `02-Display_Values.jpg` screenshot that was requested to be upl
 
 # ***Task 3***
 
-  
+Task 3 requires us to define a variable called `currentTS` as the current timestamp, expressed in seconds. To do so, we can complete the skeletal code ` currentTS=`` ` by adding the following. 
+
+```bash
+# [TASK 3]
+currentTS=$(date +%s)
+```
+
+* `$( ... )` is command substitution. It runs the command inside and replaces the whole `$(...)` with the command’s output.  
+* `date`: This is the standard Unix command for displaying or setting the system date and time.
+* `+%s`: This is a format specifier for the date command. The `%s` specifier tells date to output the number of seconds that have elapsed since the Unix Epoch (January 1, 1970, 00:00:00 UTC). This value is also known as a Unix timestamp or epoch time.
+
+Below is the requested screenshot named `04-Set_Value.jpg`.  
+
+![04-Set_Value.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/04-Set_Value.jpg?raw=true)  
+
+# ***Task 4***  
+
+Proceeding with our work, we must now define a variable called `backupFileName` to store the name of the archived and compressed backup file that the script will create.
