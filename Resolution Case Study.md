@@ -239,7 +239,7 @@ Before proceeding with the project's instructions, it is worth quoting the skele
 # To make things easier, we will define some useful variables...
 ```
 
-Task 5 asks us to define a variable called `origAbsPath` with the absolute path of the current directory as the variable's value. The following string perfectly follow this instruction.  
+Task 5 asks us to define a variable called `origAbsPath` with the absolute path of the current directory as the variable's value. The following string perfectly follows this instruction.  
 
 ```bash
 # [TASK 5]
@@ -248,6 +248,8 @@ origAbsPath=$(pwd)
 
 * `pwd` prints the current working directory; capturing it allows us to come back to it later.
 
-As by praxis, the following is the `05-Define_Variable.jpg` screenshot.  
+As per praxis, the following is the `05-Define_Variable.jpg` screenshot.  
 
-![05-Define_Variable.jpg]()
+![05-Define_Variable.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/05-Define_Variable.jpg?raw=true)  
+
+
