@@ -209,4 +209,22 @@ Below is the requested screenshot named `04-Set_Value.jpg`.
 
 # ***Task 4***  
 
-Proceeding with our work, we must now define a variable called `backupFileName` to store the name of the archived and compressed backup file that the script will create.
+Proceeding with our work, we must now define a variable called `backupFileName` to store the name of the archived and compressed backup file that the script will create. The task's request proceeds with the following suggestion:  
+
+*The variable `backupFileName` should have the value `"backup-[$currentTS].tar.gz"`.*
+  * *For example, if `currentTS` has the value `1634571345`, then `backupFileName` should have the value `backup-1634571345.tar.gz`*.
+
+Following the instructions, we can devise this string: 
+
+```bash
+# [TASK 4]
+backupFileName="backup-$currentTS.tar.gz"
+```
+
+This way, the variable creates a string like the one requested in the task.  
+
+Below is also the screenshot `04-Set_Value.jpg`.  
+
+![04-Set_Value.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/04-Set_Value.jpg?raw=true)  
+
+
