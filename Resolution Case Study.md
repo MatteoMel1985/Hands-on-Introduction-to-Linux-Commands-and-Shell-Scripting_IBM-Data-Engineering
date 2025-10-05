@@ -205,7 +205,7 @@ currentTS=$(date +%s)
 
 Below is the requested screenshot named `04-Set_Value.jpg`.  
 
-![04-Set_Value.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/04-Set_Value.jpg?raw=true)  
+![03-CurrentTS.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/03-CurrentTS.jpg?raw=true)  
 
 # ***Task 4***  
 
