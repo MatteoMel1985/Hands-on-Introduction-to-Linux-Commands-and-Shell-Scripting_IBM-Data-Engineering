@@ -252,4 +252,6 @@ As per praxis, the following is the `05-Define_Variable.jpg` screenshot.
 
 ![05-Define_Variable.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/05-Define_Variable.jpg?raw=true)  
 
+# ***Task 6***  
 
+Now, we are requested to define a variable called `destAbsPath`, whose value equals the absolute path of the destination directory.
