@@ -254,4 +254,58 @@ As per praxis, the following is the `05-Define_Variable.jpg` screenshot.
 
 # ***Task 6***  
 
-Now, we are requested to define a variable called `destAbsPath`, whose value equals the absolute path of the destination directory.
+Now, we are requested to define a variable called `destAbsPath`, whose value equals the absolute path of the destination directory. To do so, I devised the following code.
+
+```bash
+# [TASK 6]
+cd $destinationDirectory
+destAbsPath=$(pwd)
+```
+
+* `cd $destinationDirectory` changes the directory to the destination. The command `cd`, in Bash script, stands for change directory.  
+* `destAbsPath=$(pwd)` captures its absolute path, by a relative input like `../backups` to an absolute path after the `cd`. `pwd`, indeed, stands for "print working directory" in Bash script.
+
+Here is the requested screenshot `06-Define_Variable.jpg`.  
+
+![06-Define_Variable.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/06-Define_Variable.JPG?raw=true)  
+
+# ***Task 7***  
+
+Now, we must change directories from the current working directory to the target directory `targetDirectory`. The hint of the task already tells us how to write the code, as it recites *`cd` into the original directory `origAbsPath` and then `cd` into `targetDirectory`.*  
+By simply following this indication, we can compose  
+
+```bash
+# [TASK 7]
+cd $origAbsPath 
+cd $targetDirectory
+```
+
+Following is the screenshot `07-Change_Directory.jpg`.  
+
+![07-Change_Directory.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/07-Change_Directory.jpg?raw=true)  
+
+# ***Task 8***  
+
+Finally, this job requires us to perform some computation, as we are tasked with finding files that have been updated within the past 24 hours. More specifically, it wants us to see all files whose last-modified date was 24 hours ago or less. To make this easier, the prompt suggests we define a numerical variable called `yesterdayTS` as the timestamp (in seconds) 24 hours before the current timestamp, `currentTS`.  
+Interestingly, in the hint section, the following sentence teaches us how to structure the code:  
+
+*Thus, to get the timestamp in seconds of 24 hours in the future, you would use: `tomorrowTS=$(($currentTS + 24 * 60 * 60))`*  
+
+By applying the instructions and tweaking them to calculate the variable `yesterdayTS`, we can write:  
+
+```bash
+# [TASK 8]
+yesterdayTS=$(($currentTS - 24 * 60 * 60))
+```  
+
+* Bash arithmetic expansion with `$(( ... ))` computes an integer: in our case, `currentTS - 86400`.
+* `currentTS`, as explained in Task 3, represents our current timestamp, expressed in seconds. These seconds are calculated since the Unix Epoch, which is January 1, 1970, 00:00:00 UTC.
+* The expression `24 * 60 * 60` calculates the total number of seconds in a 24-hour period.
+    * `24` represents the number of hours in a day.
+    * `60`: represents the number of minutes in an hour.
+    * `60`: represents the number of seconds in a minute.
+* By multiplying these three numbers together (`24 * 60 * 60`), the script determines the total number of seconds in a single day, which is 86,400.
+
+ Here is the `08-YesterdayTS.jpg` screenshot.  
+
+![YesterdayTS](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/08-YesterdayTS.jpg?raw=true) 
