@@ -308,4 +308,34 @@ yesterdayTS=$(($currentTS - 24 * 60 * 60))
 
  Here is the `08-YesterdayTS.jpg` screenshot.  
 
-![YesterdayTS](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/08-YesterdayTS.jpg?raw=true) 
+![YesterdayTS](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/08-YesterdayTS.jpg?raw=true)  
+
+# ***Note on Arrays***  
+
+The script proceeds with the following line:  
+
+```bash
+declare -a toBackup
+```
+
+It declares a variable called `toBackup`, which is an array. They contain a list of values, and items can be appended to them by using the following syntax:  
+
+```bash
+myArray+=($myVariable)
+```
+
+The following example shows how to append items to an array, and how they appear in a single line separated by spaces once they are `echo`ed. 
+
+```bash
+$ declare -a myArray
+$ myArray+=("Linux")
+$ myArray+=("is")
+$ myArray+=("cool!")
+$ echo ${myArray[@]}
+Linux is cool!
+```
+
+
+
+
+
