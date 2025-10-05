@@ -222,7 +222,6 @@ backupFileName="backup-$currentTS.tar.gz"
 ```
 
 This way, the variable creates a string like the one requested in the task.  
-
 Below is also the screenshot `04-Set_Value.jpg`.  
 
 ![04-Set_Value.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/04-Set_Value.jpg?raw=true)  
