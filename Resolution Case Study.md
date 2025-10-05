@@ -226,4 +226,28 @@ Below is also the screenshot `04-Set_Value.jpg`.
 
 ![04-Set_Value.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/04-Set_Value.jpg?raw=true)  
 
+# ***Task 5***  
 
+Before proceeding with the project's instructions, it is worth quoting the skeletal code documentation written after the symbol `#`, which provides further explanation of the function performed by its following section.  
+
+```bash
+# We're going to:
+  # 1: Go into the target directory
+  # 2: Create the backup file
+  # 3: Move the backup file to the destination directory
+
+# To make things easier, we will define some useful variables...
+```
+
+Task 5 asks us to define a variable called `origAbsPath` with the absolute path of the current directory as the variable's value. The following string perfectly follow this instruction.  
+
+```bash
+# [TASK 5]
+origAbsPath=$(pwd)
+```
+
+* `pwd` prints the current working directory; capturing it allows us to come back to it later.
+
+As by praxis, the following is the `05-Define_Variable.jpg` screenshot.  
+
+![05-Define_Variable.jpg]()
