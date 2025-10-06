@@ -390,3 +390,16 @@ After this explanation, I proceed by attaching the `10-IF_Statement.jpg` screens
 
 # ***Task 11***  
 
+Even in Task 11 the solution is already provided in the instructions, with the only difference that not even minor tweaks must be applied.  
+This is what we read:  
+
+**In the `if-then` statement, add the `$file` that was updated in the past 24-hours to the `toBackup` array.**  
+**Since much of this wasn’t covered in the course, you may copy the code below and place after the then statement for this task:**  
+
+```bash
+toBackup+=($file)
+```
+
+* `toBackup` is the name of a Bash indexed array variable.
+* `+=` is the append operator. For arrays, this adds new elements to the end of the array.
+* The parentheses introduce an array literal. With `+=`, this appends the elements listed inside to the array.  
