@@ -406,6 +406,6 @@ toBackup+=($file)
 
 The task is concluded by attaching the `11-Add_File.jpg` screenshot.  
 
-[11-Add_File.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/11-Add_File.jpg?raw=true)  
+![11-Add_File.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/11-Add_File.jpg?raw=true)  
 
 # ***Task 12***  
