@@ -335,7 +335,58 @@ $ echo ${myArray[@]}
 Linux is cool!
 ```
 
+# ***Task 9***  
 
+Task 9 recites as follows: **"In the for loop, use the wildcard to iterate over all files and directories in the current folder."** Thus, we can complete the skeletal code in this fashion:  
 
+```bash
+for file in $(ls) # [TASK 9]
+do
+```
 
+* `for file in $(ls)` runs `ls` (short of "list"), which is a command used to list the contents of a directory. It captures the output, then splits it on whitespace to produce a list for the `for` loop.
+
+In conclusion of the job, attached is the `09-List_AllFilesandDirectoriess.jpg` screenshot.  
+
+![09-List_AllFilesandDirectoriess.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/09-List_AllFilesandDirectoriess.jpg?raw=true)  
+
+# ***Task 10***  
+
+Since they were not covered in the *Hands-on Introduction to Linux Commands and Shell Scripting* course, both Tasks 10 and 11 are already resolved in the instructions. The first among them quotes:  
+
+**Inside the for loop, you want to check whether the $file was modified within the last 24 hours.**
+   *To get the last-modified date of a file in seconds, use `date -r $file +%s` then compare the value to `yesterdayTS`.* 
+   *if `[[ $file_last_modified_date -gt $yesterdayTS ]]` then the file was updated within the last 24 hours!*  
+**Since much of this wasn't covered in the course, for this task you may copy the code below and paste it into the double square brackets `[[]]`:**  
+
+```bash
+`date -r $file +%s` -gt $yesterdayTS
+```
+
+Thus, the completed `# TASK 10` snippet would look as follows:  
+
+```bash
+  # [TASK 10]
+  if ((`date -r $file +%s` > $yesterdayTS))
+  then
+```
+
+* `if` … ; `then` … `fi` are standard Bash conditional. If the test/expression inside evaluates as non-zero (true) in an arithmetic context (or exit status 0 if using command tests), the then branch executes; otherwise it skips to after fi. Here, we’re using arithmetic evaluation with `(( … ))`.
+* `(( … ))` are Bash arithmetic evaluation. Inside `(( … ))`, the content is parsed as a numeric expression. Comparison operators like `>` are numeric comparisons here, and not redirections.
+* `date` is the system utility for printing/formatting dates.
+* `-r $file` GNU coreutils `date`: `-r FILE` (or `--reference=FILE`) means *“use the modification time of FILE as the date/time to format,”* rather than *“now.”* So with GNU `date`, `date -r $file …` formats the file’s mtime.
+* `$file` expands to the current loop item (a filename).
+* `+%s` is a format string for date, meaning “print the time as epoch seconds” (seconds since 1970-01-01 00:00:00 UTC). Thus, `date -r "$file" +%s` yields an integer timestamp representing the file’s last modification time.
+* `>` Inside `(( … ))`, `>` is the numeric greater-than operator.
+* `$yesterdayTS` is a shell variable defined earlier as a timestamp for “24 hours ago” (or `currentTS - 86400`). Because we’re in an arithmetic context, `$yesterdayTS` is treated as a number and compared numerically.
+
+### ***IN SHORT***  
+
+``(( \date -r $file +%s` > $yesterdayTS ))`` evaluates to true if the file’s modification time (in epoch seconds) is **strictly greater than** the cutoff timestamp for “yesterday.” In other words: *“Was this file modified within the last 24 hours?”* If yes, enter the then branch.  
+
+After this explanation, I proceed by attaching the `10-IF_Statement.jpg` screenshot.  
+
+![10-IF_Statement.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/10-IF_Statement.jpg?raw=true)  
+
+# ***Task 11***  
 
