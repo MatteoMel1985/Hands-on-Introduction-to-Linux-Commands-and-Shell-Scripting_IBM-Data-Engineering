@@ -593,7 +593,7 @@ The command `./backup.sh important-documents .` executes a script named backup.s
 * `./` specifies that the `backup.sh` script is located in the current directory.  
 * `backup.sh` is the name of the script file that is being executed.
 * `important-documents` is the first argument passed to the script.
-* `.:` is the second argument passed to the script. The single dot (`.`) is a common convention in Unix-like systems to represent the current directory. Therefore, the script will save the backup in the directory where the command is being run.
+* `.` is the second argument passed to the script. The single dot (`.`) is a common convention in Unix-like systems to represent the current directory. Therefore, the script will save the backup in the directory where the command is being run.
 
 Once run, the command will create a file called `backup-[CURRENT_TIMESTAMP].tar.gz` in the current directory, which will also be visible in the explorer pane.  
 
@@ -614,6 +614,85 @@ If all the instructions were executed correctly, its output, which is requested 
 
 # ***Task 17***  
 
+This final task begins by requesting us to copy the `backup.sh` script into the `/usr/local/bin/`, without using the command `mv`.  
+To do so, we can simply run the following string from the terminal:  
 
+```bash
+sudo cp backup.sh /usr/local/bin/  
+```
 
+* `sudo` stands for superuser do. It runs the following command as the superuser (root), temporarily giving you administrative privileges.
+*Why is it needed?*
+    * `/usr/local/bin/` is a system directory.
+    * Normal users (like `theia`, used in this case) usually don’t have write permission to it.
+    * Without sudo, an error would be thrown.
+ 
+* `cp` stands for "copy", and it is used to copy files or directories from one location to another.
+* `backup.sh` is the source file, the one we are copying from.
+* `/usr/local/bin/` is the destination directory.
 
+At this stage, we are requested to test the cronjob to see if the backup script is getting triggered by scheduling it for every 1 minute; therefore, the first action we will have to perform will be opening crontab by running the following code from the terminal:  
+
+```bash
+crontab -e
+```
+* `crontab` is the command to manage your personal cron jobs.
+* `-e`, or “edit”, opens your crontab file in a text editor.
+
+Once run, crontab should appear in our terminal as shown in the image below.  
+
+![Screenshot 5](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%205.jpg?raw=true)  
+
+We will note that crontab is self-explanatory, as in its initial lines already provide us with the instructions on how to execute it. 
+To add the job line, we must scroll down to the bottom with the lower arrow key and at this line, as shown in the screenshot below.  
+
+```bash
+*/1 * * * * /usr/local/bin/backup.sh /home/project/important-documents /home/project
+```
+
+[Screenshot 6](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%206.jpg?raw=true)  
+
+Its significance is explained by the table below.  
+
+| Field	| Example	| Meaning |
+| ----- | ------- | ------- |
+| `*/1`	| Every 1 minute	| Minute field - runs every minute (same as `*`, but explicit) |
+| `*` | Every hour	| Hour field |
+| `*` |	Every day of the month	| Day-of-month field |
+| `*` |	Every month	| Month field|
+| `*`	| Every day of the week |	Day-of-week field |
+| `/usr/local/bin/backup.sh`	| The command (script path) to execute	|
+| `/home/project/important-documents`	| First argument (source directory) |	
+| `/home/project`	| Second argument (destination directory) |  
+
+So, every minute, cron will:  
+
+1. Go to our installed backup script
+2. Backup everything in `/home/project/important-documents`
+3. Save the archive in `/home/project`
+
+To save and exit the editor, we must type `ctrl` + `x`. Then, we will be requested if we want to save the modified buffer, and to proceed, we will have to press the key `y`.  
+Finally, to exit the editor, we must press `enter`. 
+To start cron, the following command must be run from the terminal.  
+
+```bash
+sudo service cron start
+```
+
+Once done, we will see the following message appear in the terminal.  
+
+[Screenshot 7](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%207.jpg?raw=true)  
+
+From this moment on, cron will create a backup file every minute. They will also appear and be visible in the explorer pane.  
+
+![Screenshot 8](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%208.JPG?raw=true)  
+
+Now, we can stop crontab by running the following command in the terminal.  
+
+```bash
+sudo service cron stop
+```
+
+The following message will appear in the terminal.  
+
+![Screenshot 9](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%209.JPG?raw=true)
