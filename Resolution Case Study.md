@@ -402,4 +402,10 @@ toBackup+=($file)
 
 * `toBackup` is the name of a Bash indexed array variable.
 * `+=` is the append operator. For arrays, this adds new elements to the end of the array.
-* The parentheses introduce an array literal. With `+=`, this appends the elements listed inside to the array.  
+* `($file)` The parentheses introduce an array literal. With `+=`, this appends the elements listed inside to the array.  
+
+The task is concluded by attaching the `11-Add_File.jpg` screenshot.  
+
+[11-Add_File.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/11-Add_File.jpg?raw=true)  
+
+# ***Task 12***  
