@@ -455,3 +455,79 @@ How the arrays works on Bash scripting was already explained in the **Note on Ar
 Following is the `12-Create_Backup.jpg` screenshot.  
 
 ![12-Create_Backup.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/12-Create_Backup.jpg?raw=true)
+
+# ***Task 13***  
+
+As `$backupFileName` is created in the current working directory, now, as stated in the hint of the task, we must move it to the destination directory located at `destAbsPath`.  
+To achieve this end, it is enough to write:  
+
+```bash
+# [TASK 13]
+mv $backupFileName $destAbsPath
+```
+
+Indeed, in Bash scripting, the command-line utility `mv` stands for move. Attached is the `13-Move_Backup.jpg` screenshot.  
+
+![13-Move_Backup.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/13-Move_Backup.jpg?raw=true)  
+
+# ***Task 14***  
+
+The file [backup.sh](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/backup.sh) was uploaded to the repository for consultation.  
+
+# ***Task 15***  
+
+Task 15 asks us to open a new terminal and make the file `backup.sh` executable. To do so, we must write the following command in the terminal.  
+
+```bash
+chmod + x backup.sh
+```
+
+* `chmod` is a command in Unix-like operating systems used to change file permissions.
+* `+x` is a symbolic mode argument that adds the execute permission (x) to the file. When used without specifying a user, group, or others (like `u+x`, `g+x`, `o+x`), it typically adds the execute permission for all categories: the file owner, the group owner, and other users.
+* `backup.sh` is the name of the file whose permissions are being modified.
+
+Now, we are requested to verify if the file is executable using the `ls` command with the `-l` option. To do so, we must launch the following string from the terminal.  
+
+```bash
+ls -l backup.sh
+```
+
+This line is comprised of the following components:  
+
+| Component	| Type	| Role |
+| --------- | ----- | ---- |
+| `ls` | command	| Lists files and directories |
+| `-l`	| option/flag	| Requests the “long listing” format (detailed info) | 
+| `backup.sh` |	argument	| The target file whose info are requested |  
+
+Once executed, the `15-executable.jpg` screenshot should appear as follows.  
+
+![15-executable.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/15-executable.jpg?raw=true)  
+
+### `-rwxr-xr-x` 
+
+* `-`indicates the file type and its permissions. The first character, `-`, indicates the file type. The following are the common possibilities.  
+
+| Symbol	| Meaning | 
+| ------- | ------- |
+| `-`	| Regular file |
+|`d` |	Directory |
+|`l`	| Symbolic link |
+|`b` |	Block device (e.g., disk) |
+|`c`	| Character device (such as terminal) |
+|`p`	| Named pipe |
+|`s`	| Socket |  
+
+Since our first character is `-`, we can say that `backup.sh` is a regular file.  
+
+* `rwxr-xr-x`: These encode read, write, and execute permissions for three categories of users:
+    1. Owner (the person who owns the file)
+    2. Group (members of the group that owns the file)
+    3. Others (everyone else on the system)
+ 
+| Characters	| Category	| Meaning |
+| ----------- | --------- | ------- |
+|`rwx` |	Owner permissions	| Owner can read, write, and execute |
+|`r-x` |	Group permissions	| Group can read and execute, but not write |
+|`r-x`	| Others permissions	| Everyone else can read and execute, but not write |
+
