@@ -531,3 +531,23 @@ Since our first character is `-`, we can say that `backup.sh` is a regular file.
 |`r-x` |	Group permissions	| Group can read and execute, but not write |
 |`r-x`	| Others permissions	| Everyone else can read and execute, but not write |
 
+* `1` is the hard kink count. It shows how many directory entries (hard links) point to this file’s inode (the underlying data structure on disk).
+    * `1` means there is only one name for this file, which is `backup.sh`.
+    * If it were greater than 1, there would be other filenames pointing to the same physical file data.
+ 
+* `theia` is the owner username, representing the user account that owns the file.
+
+*  `users` is the group name, showing the group ownership of the file.
+    * In Unix-like systems, every file has both a user and a group owner.
+    * Any account that’s part of the `users` group inherits the “group” permissions for this file (`r-x` in this case).
+ 
+* `1378` is the file size in bites
+
+* `Sep 30 12:05` is the last modification timestamp.
+    * `Sep 30` is the date (month and day).
+    * `12:05` is time of day (in 24-hour format, local time zone).
+ 
+* `backup.sh` is the file name.
+
+# ***Task 16***  
+
