@@ -438,5 +438,20 @@ The command creates a compressed archive file (`.tar.gz`) that contains all the 
 
 **NOTE**  
     
-  * The order of flags doesn’t matter (`-cvzf`, `-zcvf`, etc., they all work).
-  * However, `-f` must be immediately followed by (or precede) the archive filename, as it expects that argument next.
+   * The order of flags doesn’t matter (`-cvzf`, `-zcvf`, etc., they all work).
+   * However, `-f` must be immediately followed by (or precede) the archive filename, as it expects that argument next.
+
+`$backupFileName` is a variable that expands to the name of the backup archive to create. Earlier in the script, it was defined as `backupFileName="backup-$currentTS.tar.gz"`, so, at runtime, it might become something like `backup-1696350000.tar.gz`, which is an output file sample, the name of the compressed archive that will contain all your selected files.  
+
+* `${toBackup[@]}` is a Bash array expansion, made up by the following components:
+
+| Component	| Meaning |
+| --------- | ------- |
+| `toBackup` |	The name of the Bash array variable created earlier (`declare -a toBackup`) |
+| [@]	| Expands all elements of the array as separate words |  
+
+How the arrays works on Bash scripting was already explained in the **Note on Arrays** section of this work.  
+
+Following is the `12-Create_Backup.jpg` screenshot.  
+
+![12-Create_Backup.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/12-Create_Backup.jpg?raw=true)
