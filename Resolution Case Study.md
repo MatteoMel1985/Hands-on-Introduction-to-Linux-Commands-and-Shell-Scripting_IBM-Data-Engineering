@@ -479,7 +479,7 @@ The file [backup.sh](https://github.com/MatteoMel1985/Hands-on-Introduction-to-L
 Task 15 asks us to open a new terminal and make the file `backup.sh` executable. To do so, we must write the following command in the terminal.  
 
 ```bash
-chmod + x backup.sh
+chmod +x backup.sh
 ```
 
 * `chmod` is a command in Unix-like operating systems used to change file permissions.
