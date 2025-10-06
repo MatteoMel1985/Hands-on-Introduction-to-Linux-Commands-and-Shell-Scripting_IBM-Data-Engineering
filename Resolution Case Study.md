@@ -650,7 +650,7 @@ To add the job line, we must scroll down to the bottom with the lower arrow key 
 */1 * * * * /usr/local/bin/backup.sh /home/project/important-documents /home/project
 ```
 
-[Screenshot 6](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%206.jpg?raw=true)  
+![Screenshot 6](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%206.jpg?raw=true)  
 
 Its significance is explained by the table below.  
 
@@ -681,7 +681,7 @@ sudo service cron start
 
 Once done, we will see the following message appear in the terminal.  
 
-[Screenshot 7](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%207.jpg?raw=true)  
+![Screenshot 7](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%207.jpg?raw=true)  
 
 From this moment on, cron will create a backup file every minute. They will also appear and be visible in the explorer pane.  
 
@@ -695,4 +695,56 @@ sudo service cron stop
 
 The following message will appear in the terminal.  
 
-![Screenshot 9](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%209.JPG?raw=true)
+![Screenshot 9](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%209.JPG?raw=true)  
+
+The final request of Task 17 is to run crontab again and schedule the `/usr/local/bin/backup.sh` script to backup the `important-documents` folder every 24 hours to the directory `/home/project`. 
+
+To do so, we have to repeat the same operation; however, we must change the last string in the editor of crontab. Therefore, we are going to open it again by running the command  
+
+```bash
+crontab -e
+```
+
+Once run, we will be prompted again inside the editor. Again, we are going to scrol until the bottom row, we will delete our previous code `/1 * * * * /usr/local/bin/backup.sh /home/project/important-documents /home/project`, and , considering that the most conventional time is midnight (i.e., 00:00 every day), we will correct it with the following:  
+
+```bash
+0 0 * * * /usr/local/bin/backup.sh /home/project/important-documents /home/project
+```
+
+| Field	| Value	| Meaning |
+| ----- | ----- | ------- |
+| `0`	| Minute	|At minute 0 |
+| `0`| 	Hour	| At hour 0: midnight |
+| `*`	| Day of month	| Every day of the month |
+| `*` | Month |	Every month|
+|`*` |	Day of week	| Every day of the week |
+|`/usr/local/bin/backup.sh` |	Command (full path to your script) |	
+|`/home/project/important-documents` |	Argument 1 (source directory) |	
+|`/home/project`	| Argument 2 (destination directory) |	
+
+Finally, we can save and close crontab by pressing `ctr` + `x`, then the letter `y`, and finally the `enter` key.  
+Now, we must again activate crontab by running the following string in the terminal.  
+
+
+```bash
+sudo service cron start
+```
+
+Finally, we can run the command  
+
+```bash
+crontab -l
+```
+
+And take the screenshot `17-crontab.jpg`, which is the final job of our task.  
+
+![17-crontab.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/17-crontab.jpg?raw=true)  
+
+As we are done with our job, we can now stop crontab by running  
+
+```bash
+sudo service cron stop
+```
+
+And close our EDI. 
+
