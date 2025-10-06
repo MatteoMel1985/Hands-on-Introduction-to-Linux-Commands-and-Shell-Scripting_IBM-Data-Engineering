@@ -1,4 +1,4 @@
-<img width="538" height="97" alt="image" src="https://github.com/user-attachments/assets/3c2b9a42-edb6-43ac-adad-8b35c09072a2" /># Getting Started  
+# *Getting Started*  
 
 # ***Task 0***  
 
