@@ -1,4 +1,4 @@
-# Getting Started  
+<img width="538" height="97" alt="image" src="https://github.com/user-attachments/assets/3c2b9a42-edb6-43ac-adad-8b35c09072a2" /># Getting Started  
 
 # ***Task 0***  
 
@@ -541,13 +541,79 @@ Since our first character is `-`, we can say that `backup.sh` is a regular file.
     * In Unix-like systems, every file has both a user and a group owner.
     * Any account that’s part of the `users` group inherits the “group” permissions for this file (`r-x` in this case).
  
-* `1378` is the file size in bites
+* `1378` is the file size in bytes
 
 * `Sep 30 12:05` is the last modification timestamp.
     * `Sep 30` is the date (month and day).
-    * `12:05` is time of day (in 24-hour format, local time zone).
+    * `12:05` is the time of day (in 24-hour format, local time zone).
  
 * `backup.sh` is the file name.
 
 # ***Task 16***  
+
+In this task, we are requested to run the following `wget` command to download a zip file named `important-documents.zip`.  
+
+```bash
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/Final%20Project/important-documents.zip
+```
+
+Once done, the file will appear in the explorer pane on the upper-left side of the screen as shown in this image.  
+
+![Screenshot 2](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%202.JPG?raw=true)  
+
+Once done, we must proceed by unzipping the archive file by running this command on the terminal:  
+
+```bash
+unzip -DDo important-documents.zip
+```
+
+The command `--DDo` overwrites without restoring the original modified date.  
+Once executed, the folder `important-documents` should appear in the explorer pane as in the image.  
+
+![Screenshot 3](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%203.JPG?raw=true)  
+
+At this time, we are requested to update the file's last-modified date to now, by running this string from the terminal.  
+
+```bash
+touch important-documents/*
+```
+
+* `touch` is the command used to create empty files or update the timestamps of existing files and directories.
+* `important-documents/` specifies the target directory where the command will operate.
+* `*` is a wildcard, or "glob," that matches any file or directory within the `important-documents/` directory. When used with touch, it applies the touch operation to each item found.
+
+Finally, we are requested to test the script by running the following command from the terminal.  
+
+```bash
+./backup.sh important-documents .
+```
+
+The command `./backup.sh important-documents .` executes a script named backup.sh using a relative path, passing two arguments: `important-documents` and `.`, which refers to the current directory where the backup should be stored. The script itself, which resides in the current directory, performs the backup operation, taking the specified files or folders and saving them to the current directory.  
+
+* `./` specifies that the `backup.sh` script is located in the current directory.  
+* `backup.sh` is the name of the script file that is being executed.
+* `important-documents` is the first argument passed to the script.
+* `.:` is the second argument passed to the script. The single dot (`.`) is a common convention in Unix-like systems to represent the current directory. Therefore, the script will save the backup in the directory where the command is being run.
+
+Once run, the command will create a file called `backup-[CURRENT_TIMESTAMP].tar.gz` in the current directory, which will also be visible in the explorer pane.  
+
+![Screenshot 4](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%204.JPG?raw=true)  
+
+At the end of the task, we are requested to run this last script from the terminal.  
+
+```bash
+ls -l
+```
+
+* `ls` is the core command, short for "list." Its primary function is to display the contents (files and directories) of a specified directory. If no directory is specified, it defaults to the current working directory.
+* `-l` is an option or flag for the ls command, which stands for "long format." This option modifies the output of ls to provide more detailed information about each file and directory.
+
+If all the instructions were executed correctly, its output, which is requested to be saved as a screenshot under the name `16-backup-complete.jpg`, should appear as follows.  
+
+![16-backup-complete.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/16-backup-complete.jpg?raw=true)  
+
+# ***Task 17***  
+
+
+
 
