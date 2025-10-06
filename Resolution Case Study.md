@@ -409,3 +409,34 @@ The task is concluded by attaching the `11-Add_File.jpg` screenshot.
 ![11-Add_File.jpg](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/Tasks/11-Add_File.jpg?raw=true)  
 
 # ***Task 12***  
+
+After the `for` loop, we are requested to compress and archive the files, using the `$toBackup` array of filenames, to a file with the name `backupFileName`.  
+The solution for this task is already provided in its hint, which quotes:  
+
+*Use `tar -czvf $backupFileName ${toBackup[@]}`*  
+
+Therefore, we can simply accomplish the task by compiling  
+
+```bash
+# [TASK 12]
+tar -czvf $backupFileName ${toBackup[@]}
+```
+
+The command creates a compressed archive file (`.tar.gz`) that contains all the files stored in the Bash array variable `toBackup`. It uses the Unix utility `tar`, which stands for “tape archive”, a traditional program to bundle multiple files into a single archive file, optionally compressing it.  
+
+* `tar` is a command-line tool that:
+    * combines many files or directories into a single `.tar` archive (without compression), or
+    * combines + compresses when paired with a compression flag (like `-z` for gzip).
+* `-czvf` This compact group actually combines four separate flags, each with a specific meaning:  
+
+| Flag	| Meaning	| Description | 
+| ----- | ------- | ----------- |
+| `-c`	| create	| Create a new archive file. Without it, tar might try to extract (-x) instead. |
+| `-z`	| gzip compression	| Filter the archive through `gzip`. This means the final file will be compressed and end in `.tar.gz.` |
+| `-v`	| verbose	| Print the name of each file as it’s being added to the archive. This gives you progress output in the terminal. |
+| `-f`	| file name follows	| Tells `tar` that the next argument after these options is the name of the archive file to create or read. |  
+
+**NOTE**  
+    
+  * The order of flags doesn’t matter (`-cvzf`, `-zcvf`, etc., they all work).
+  * However, `-f` must be immediately followed by (or precede) the archive filename, as it expects that argument next.
