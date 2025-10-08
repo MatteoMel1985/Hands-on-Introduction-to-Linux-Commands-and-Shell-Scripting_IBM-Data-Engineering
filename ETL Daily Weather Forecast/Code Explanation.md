@@ -1,4 +1,4 @@
-# Preliminary requirements  
+# **Preliminary requirements**  
 
 Before compiling `rx_poc.sh`, it is necessary to set up the environment.  
 
@@ -56,5 +56,38 @@ At this point in the work, we should be able to visualise the `rx_poc.sh` file a
 
 ![Screenshot 11](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2011.JPG?raw=true)  
 
+# **`rx_poc.sh`**  
 
+# *Section 1: Shebang — Script Interpreter*  
 
+```bash
+#! /bin/bash
+```
+
+* `#!` (pronounced “shebang”), tells the system which interpreter to use to execute this file.
+* `/bin/bash` is the path to the Bash shell binary, which interprets the commands in the script. This ensures the script runs in Bash, not another shell (like sh or zsh).
+
+# *Section 2: Define the City Variable*   
+
+```bash
+#Assign city name as Casablanca
+city=Casablanca
+```
+
+* `city=Casablanca` creates a variable named city and assigns it the string value "Casablanca" (no spaces are allowed around the `=` in Bash.).
+
+# *Section 3: Download the Weather Report*  
+
+```bash
+#Obtain the weather report for Casablanca
+curl -s wttr.in/$city?T --output weather_report
+```
+
+* `curl` is a command-line tool to transfer data from or to a server.
+* `-s` stands for silent mode, implying no progress bar or error messages.
+* `wttr.in/$city?T`:
+    * Fetches weather for Casablanca (`$city` expands to `Casablanca`).
+    * `?T` means “show in terminal-friendly format with Celsius temperature”.
+* `--output weather_report` saves the fetched content into a file named weather_report (instead of printing it).
+
+✅ After this command, a file named `weather_report` with Casablanca’s weather report will be issued.
