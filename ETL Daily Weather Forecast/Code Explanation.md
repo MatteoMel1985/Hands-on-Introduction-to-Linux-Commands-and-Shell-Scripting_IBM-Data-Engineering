@@ -25,4 +25,36 @@ This command initialises the log file with column headers, like a CSV or table t
 * `-e` enables interpretation of escape sequences (special backslash codes). Without `-e`, characters like `\t` or `\n` would appear literally, whereas with `-e`, they are translated (e.g., `\t` → tab, `\n` → newline).
 * `"year\tmonth\tday\tobs_temp\tfc_temp"` is the quoted string is the text to print.
     * `year`, `month`, `day`, `obs_temp`, and `fc_temp` are column names.
+    * `\t` is the tab character: it creates tab-separated fields (for clean alignment in logs or when opening the file in Excel).
+* `>` is a redirection operator. It takes the output of the command on the left (`echo ...`) and writes it to the file on the right (`rx_poc.log`).
+
+# *Create the Bash Script File*  
+
+```bash
+touch rx_poc.sh
+```
+
+Just like the first touch command, this creates a new empty file named `rx_poc.sh`  
+Once the string is run, we will be able to see `rx_poc.sh` appearing in the explorer pane on the upper-left side of the EDI.  
+
+# *Make the Script Executable*  
+
+```bash
+chmod u+x rx_poc.sh
+```  
+
+This is a crucial step that gives execution permission to the user for your script file.  
+
+* `chmod` is short for “change mode”, and it is used to modify file permissions (read, write, execute) in Unix/Linux.
+* `u+x` is the permission modification instruction.
+    * `u` = user (the owner of the file).
+    * `+x` = add execute permission.
+So `u+x means` *“Give the user (file owner) permission to execute this file as a program.”*
+* `rx_poc.sh` is the target file whose permissions you’re changing.
+
+At this point in the work, we should be able to visualise the `rx_poc.sh` file appearing in the Explorer pane on the upper-left side of our EDI screen. Thus, we can double-click it and begin the scripting. 
+
+![Screenshot 11](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2011.JPG?raw=true)  
+
+
 
