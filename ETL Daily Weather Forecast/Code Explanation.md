@@ -237,4 +237,4 @@ crontype -l
 
 It will appear as follows.  
 
-[Screenshot 10](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2010.jpg?raw=true)
+![Screenshot 10](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2010.jpg?raw=true)
