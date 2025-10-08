@@ -90,4 +90,71 @@ curl -s wttr.in/$city?T --output weather_report
     * `?T` means “show in terminal-friendly format with Celsius temperature”.
 * `--output weather_report` saves the fetched content into a file named weather_report (instead of printing it).
 
-✅ After this command, a file named `weather_report` with Casablanca’s weather report will be issued.
+✅ After this command, a file named `weather_report` with Casablanca’s weather report will be issued.  
+
+# *Section 4: Extract the Current Temperature*  
+
+```bash
+#To extract Current Temperature
+obs_temp=$(curl -s wttr.in/$city?T | grep -m 1 '°.' | grep -Eo -e '-?[[:digit:]].*')
+echo "The current Temperature of $city: $obs_temp"
+```
+
+* `obs_temp=...` assigns the extracted value to variable `obs_temp`.
+* `$( ... )` is a command substitution: it runs the command and stores its output in a variable.
+* `curl -s wttr.in/$city?T` downloads the weather data again (in text form).
+* `|` is a pipe: it sends the output of one command into the next.
+* `grep -m 1 '°.'`
+    * `grep` searches for a pattern.
+    * `'°.'` finds the first line containing a degree symbol (°) followed by any character.
+    * `-m 1` means stop after the first match (we only need one line).
+    * `echo "The current Temperature of $city: $obs_temp"` prints the result to the terminal.  
+
+# *Section 5: Extract Forecast Temperature for Tomorrow Noon*  
+
+```bash
+# To extract the forecast tempearature for noon tomorrow
+fc_temp=$(curl -s wttr.in/$city?T | head -23 | tail -1 | grep '°.' | cut -d 'C' -f2 | grep -Eo -e '-?[[:digit:]].*')
+echo "The forecasted temperature for noon tomorrow for $city : $fc_temp C"
+```
+
+* `fc_temp=...` assigns the extracted value to variable `fc_temp=...`.
+* `$( ... )` is a command substitution: it runs the command and stores its output in a variable.
+* `curl -s wttr.in/$city?T` fetches text weather data again.
+* `head -23` takes the first 23 lines of the report.
+* `tail -1` takes the last line of those 23.
+* `grep '°.'` filters only lines containing a degree symbol (°).
+* `cut -d 'C' -f2`
+    * `cut` splits the line by the delimiter `'C'`.
+    * `-f2` takes the second field, discarding everything before the first `'C'`.
+ * `grep -Eo -e '-?[[:digit:]].*'`
+    * `grep` searches for a pattern.
+    * `-E` enables Extended Regular Expressions (ERE). Without `-E` we would need to type special characters like `\?`, `\+`, etc., wheareas with `-E`, we can just use `?`, `+`, `|` directly.
+* `-o` prints only the matching part of each line, not the entire line.
+* `-e` specifies the pattern (regular expression) that grep should search for.
+* `'-?[[:digit:]].*'`
+    * `' ... '` in Bash, single quotes `' '` prevent variable expansion and interpretation of special characters. Everything inside is taken literally, which is ideal for regex patterns.
+    * `-?` matches either nothing (for positive temperatures) or a single minus sign, for negative ones (`-` matches a literal minus sign, for negative numbers, and `?` means “the previous element is optional”).
+* `[[:digit:]]`is a POSIX character class, enclosed in `[ ... ]`. It matches any digit 0–9.
+* `.*` is the combination of two regex metacharacters:
+    * `.` matches any single character (except newline).
+    * `*`means “zero or more repetitions” of the preceding item.
+* `echo "The forecasted temperature for noon tomorrow for $city : $fc_temp C"` prints the result neatly. 
+
+In short, the whole script means: “Using extended regex rules, search each input line and print only the part that starts with an optional minus sign followed by a digit, and continue to the end of the line.”  
+
+# *Section 6: Set the Timezone Variable*  
+
+```bash
+#Assign Country and City to variable TZ
+TZ='Morocco/Casablanca'
+```
+
+* `TZ` is the timezone variable, recognised by many Unix utilities like `date`.
+* It sets the timezone to Morocco/Casablanca
+
+# *Section 7: Extract Current Date Components*  
+
+
+
+This sets the timezone to Morocco/Casablanca, ensuring all time/date outputs are correct for that location.
