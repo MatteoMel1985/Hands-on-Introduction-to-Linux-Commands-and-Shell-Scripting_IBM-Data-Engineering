@@ -155,6 +155,47 @@ TZ='Morocco/Casablanca'
 
 # *Section 7: Extract Current Date Components*  
 
+```bash
+# Use command substitution to store the current day, month, and year in corresponding shell variables:
+day=$(TZ='Morocco/Casablanca' date -u +%d)
+month=$(TZ='Morocco/Casablanca' date +%m)
+year=$(TZ='Morocco/Casablanca' date +%Y)
+```
 
+* Each command uses `$(...)` to store output in a variable.
+* `date` prints the current date/time.
+* `-u` uses UTC time (Universal Coordinated Time).
+* `TZ='Morocco/Casablanca'` before the command temporarily sets the timezone just for that command.
+* `+%d` day of month (example: 08)
+* `+%m` month number (example: 10)
+* `+%Y` → four-digit year (example: 2025)
 
-This sets the timezone to Morocco/Casablanca, ensuring all time/date outputs are correct for that location.
+# *Section 8: Log the Weather Data*  
+
+```bash
+# Log the weather
+record=$(echo -e "$year\t$month\t$day\t$obs_temp\t$fc_temp C")
+echo $record>>rx_poc.log
+```
+
+* `record=$( ... )` stores that text line in a variable named record.
+* `echo` is a built-in shell command that prints text or variables to standard output
+    * `-e` enables interpretation of escape sequences.
+    * `\t` adds tab spacing between fields.
+* `"$year\t$month\t$day\t$obs_temp\t$fc_temp C"` are the variables selected, which were previously defined and explained in the script of `rx_poc.sh` (note that the final "`C`" after `$fc_temp` was hardcoded (as part of the string) to indicate degrees Celsius.
+
+ # *Section 9:  Running the Script*
+
+ We can run the code from the terminal by typing:  
+
+ ```bash
+bash rx_poc.sh
+```
+
+The result on the terminal will vary according to the date in which is launched; however, it will appear similar to the following.  
+
+![Screenshot 12](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2012.jpg?raw=true)  
+
+The program will also generate the file [rx_poc.log](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/rx_poc.log) and [weather_report](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/weather_report), which were uploaded in the repository for consultation. 
+  
+
