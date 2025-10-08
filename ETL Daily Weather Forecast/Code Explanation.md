@@ -232,7 +232,7 @@ Now, `rx_poc.sh` is scheduled to be executed every day at 7 AM my local time.
 To display the crontab content, we can type 
 
 ```bash
-crontype -l
+crontab -l
 ```
 
 It will appear as follows.  
