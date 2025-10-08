@@ -58,7 +58,7 @@ At this point in the work, we should be able to visualise the `rx_poc.sh` file a
 
 # **`rx_poc.sh`**  
 
-# *Section 1: Shebang — Script Interpreter*  
+# *Section 1: Shebang, the Script Interpreter*  
 
 ```bash
 #! /bin/bash
