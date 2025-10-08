@@ -227,7 +227,7 @@ Technically, it means “Run the script /home/project/rx_poc.sh every day at 7:0
 | `*` | Month |	Every month|
 |`*` |	Day of week	| Every day of the week |
 
-To save it, we must press `ctr` + `x`, and then `y`. To return to the terminal, we must press `enter`. 
+To save it, we must press `ctrl` + `x`, and then `y`. To return to the terminal, we must press `enter`. 
 Now, `rx_poc.sh` is scheduled to be executed every day at 7 AM my local time. 
 To display the crontab content, we can type 
 
