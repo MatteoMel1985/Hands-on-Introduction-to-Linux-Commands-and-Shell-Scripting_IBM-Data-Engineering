@@ -184,7 +184,7 @@ echo $record>>rx_poc.log
     * `\t` adds tab spacing between fields.
 * `"$year\t$month\t$day\t$obs_temp\t$fc_temp C"` are the variables selected, which were previously defined and explained in the script of `rx_poc.sh` (note that the final "`C`" after `$fc_temp` was hardcoded (as part of the string) to indicate degrees Celsius.
 
- # *Section 9:  Running the Script*
+ # *Section 9: Running the Script*
 
  We can run the code from the terminal by typing:  
 
@@ -196,6 +196,45 @@ The result on the terminal will vary according to the date in which is launched;
 
 ![Screenshot 12](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2012.jpg?raw=true)  
 
-The program will also generate the file [rx_poc.log](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/rx_poc.log) and [weather_report](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/weather_report), which were uploaded in the repository for consultation. 
+The program will also generate the file [rx_poc.log](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/rx_poc.log) and [weather_report](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/weather_report), which were uploaded to the repository for consultation. 
   
+ # *Section 10: Schedule `rx_poc.sh` to run every day at noon local time*  
 
+Given that Casablaca is located in the UTC+1 timezone, the method suggested by IBM Network to calculate the hour difference between my local time zone and the one of Morocco is to type in the terminal the command `date`, which will output my local timestamp. Once done, they suggest to proceed by typing `date -u`, which will print the timestamp of UTC+1, and proceed by comparing their difference. The following is the result obtained on my terminal.  
+
+![Screenshot 13](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2013.jpg?raw=true)  
+
+However, due to the presence of permanent daylight saving time, the result is quite inaccurate, as it is behind by an hour. Therefore, my timezone is ahead of 7 hours in respect to Casablanca. This must be kept into account once we proceed by programming crontab.  
+To open crontab, we can type the following command on the terminal.  
+
+```bash
+crontab -e
+```
+
+Then, we must scroll down until its bottom line and add the following string.  
+
+```bash
+0 7 * * * /home/project/rx_poc.sh
+```
+
+Technically, it means “Run the script /home/project/rx_poc.sh every day at 7:00 AM.”
+
+| Field	| Value	| Meaning |
+| ----- | ----- | ------- |
+| `0`	| Minute	|At minute 0 |
+| `7`| 	Hour	| At hour 7: midnight |
+| `*`	| Day of month	| Every day of the month |
+| `*` | Month |	Every month|
+|`*` |	Day of week	| Every day of the week |
+
+To save it, we must press `ctr` + `x`, and then `y`. To return to the terminal, we must press `enter`. 
+Now, `rx_poc.sh` is scheduled to be executed every day at 7 AM my local time. 
+To display the crontab content, we can type 
+
+```bash
+crontype -l
+```
+
+It will appear as follows.  
+
+[Screenshot 10](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2010.jpg?raw=true)
