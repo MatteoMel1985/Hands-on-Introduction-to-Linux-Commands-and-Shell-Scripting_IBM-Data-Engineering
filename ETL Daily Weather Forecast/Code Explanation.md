@@ -238,3 +238,18 @@ crontab -l
 It will appear as follows.  
 
 ![Screenshot 10](https://github.com/MatteoMel1985/Relational-Dataset-Images/blob/main/Linux%20Images/Screenshot%2010.jpg?raw=true)
+
+It is key to remind that, to activate crontab, we must run the following command from the terminal. 
+
+```bash
+sudo service cron start
+```
+
+While, when we want to deactivate it, we should run.  
+
+```bash
+sudo service cron stop
+```
+
+
+
