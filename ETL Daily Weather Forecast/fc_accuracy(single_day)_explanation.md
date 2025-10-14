@@ -24,5 +24,5 @@ touch fc_accuracy.sh
 chmod u+x fc_accuracy.sh
 ```
 
-# ***`fc_accuracy.sh`: a script to Report Historical Forecasting Accuracy***
+# ***`fc_accuracy(single_day).sh`: a script to Report Historical Forecasting Accuracy***
 
