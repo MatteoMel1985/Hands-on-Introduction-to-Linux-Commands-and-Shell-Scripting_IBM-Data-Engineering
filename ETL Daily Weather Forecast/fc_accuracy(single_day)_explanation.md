@@ -1,6 +1,10 @@
-# ***Basic Requirements***
+# ***Preliminary Requirements***
 
 1. `fc_accuracy(single_day)` reads the tail of this specific [rx_poc.log](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/rx_poc.log) file, which was previously created and filled by launching the script `rx_poc.sh` (see [Code Explanation.md](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/Code%20Explanation.md_)).
+
+| year | month | day | obs_temp | fc_temp |
+| ---- | ----- | --- | -------- | ------- |
+| 2025 | 10 | 08 | 22(25) °C | 23(25) ° C |
 
 2. The tab-delimited file named `historical_fc_accuracy.tsv` must be created by running the following command by the terminal:
 
