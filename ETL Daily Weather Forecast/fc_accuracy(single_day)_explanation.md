@@ -1,4 +1,4 @@
-# Basic Requirements
+# ***Basic Requirements***
 
 1. `fc_accuracy(single_day)` reads the tail of this specific [rx_poc.log](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/rx_poc.log) file, which was previously created and filled by launching the script `rx_poc.sh` (see [Code Explanation.md](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/Code%20Explanation.md_)).
 
@@ -20,4 +20,5 @@ touch fc_accuracy.sh
 chmod u+x fc_accuracy.sh
 ```
 
+# ***`fc_accuracy.sh`: a script to Report Historical Forecasting Accuracy***
 
