@@ -108,3 +108,50 @@ echo "accuracy is $accuracy"
 * `$(( ... ))` performs integer arithmetic in Bash.
 * The script calculates the difference between forecast and observed temperature.
 * Then it prints the result, e.g., `accuracy is 1`.
+
+## ***5. Classify the Forecast Accuracy Range***  
+
+```bash
+if [ -1 -le "$accuracy" ] && [ "$accuracy" -le 1 ]; then
+    accuracy_range=excellent
+elif [ -2 -le "$accuracy" ] && [ "$accuracy" -le 2 ]; then
+    accuracy_range=good
+elif [ -3 -le "$accuracy" ] && [ "$accuracy" -le 3 ]; then
+    accuracy_range=fair
+else
+    accuracy_range=poor
+fi
+```
+
+The first line `if [ -1 -le "$accuracy" ] && [ "$accuracy" -le 1 ]; then` checks whether the numeric value stored in the variable `$accuracy` lies between –1 and +1 (inclusive). If true, the code inside this `if` branch will run.  
+
+* `[ ... ]` are Bash test brackets, equivalent to the test command. The expression inside them evaluates a condition (like numeric comparison or string match).
+* `-1 -le "$accuracy"`
+    * `-le` means less than or equal to.
+    * The left operand (`-1`) and right operand (`"$accuracy"`) are treated as integers. This part checks: “Is –1 ≤ accuracy ?”. If `$accuracy` were `0`, this would be true.
+* `&&` is the logical AND operator in Bash.
+* `[ "$accuracy" -le 1 ]` same form as before, but now it checks whether `accuracy ≤ 1`. Together, the two tests read as: `-1 ≤ accuracy ≤ 1`.
+* `then`: when the condition is true, Bash executes the commands up to the next `elif`, `else`, or `fi`.
+* `accuracy_range=excellent` is how the value is classified if it is comprised between `-1 ≤ accuracy ≤ 1`.
+
+The other strings of the code, such as 
+
+```bash
+elif [ -2 -le "$accuracy" ] && [ "$accuracy" -le 2 ]; then
+    accuracy_range=good
+```
+
+And 
+
+```bash
+elif [ -3 -le "$accuracy" ] && [ "$accuracy" -le 3 ]; then
+    accuracy_range=fair
+else
+    accuracy_range=poor
+```
+
+Follows the same logic.  
+
+* `fi` marks the end of the `if` statement block.  
+
+## ***6. Display the Forecast Classification***  
