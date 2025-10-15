@@ -89,3 +89,22 @@ Replacement part: `\1`
     * `"22(25)"` = `"22"`
     * `"-3°C"` = `"-3"`
     * `"abc"` = unchanged (because no match, so no substitution)
+ 
+## ***3. Extract Yesterday’s Forecast Temperature***  
+
+```bash
+yesterday_fc=$(tail -1 rx_poc.log | cut -d " " -f6 | sed -E 's/^(-?[0-9]+).*/\1/')
+```
+
+* Same logic as above, but for the 6th field, which represents the forecast temperature.
+
+## ***4. Compute Forecast Accuracy***  
+
+```bash
+accuracy=$((yesterday_fc - today_temp))
+echo "accuracy is $accuracy"
+```
+
+* `$(( ... ))` performs integer arithmetic in Bash.
+* The script calculates the difference between forecast and observed temperature.
+* Then it prints the result, e.g., `accuracy is 1`.
