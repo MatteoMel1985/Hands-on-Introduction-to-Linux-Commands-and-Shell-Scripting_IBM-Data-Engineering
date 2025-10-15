@@ -71,3 +71,21 @@ Therefore, `-f4` will yield
     * `-E` is an ERE (Extended Regular Expression. With it, we can write `(...)`, `+`, `?` without backslashes.  
     
 * `s/^(-?[0-9]+).*/\1/` is a substitution based on the form `s/<regex>/<replacement>/`.
+    * `^` is an anchor at the start of the string. It ensures we only match if the very first characters are a number (possibly negative).
+    * `( … )` is the capturing group 1. Everything matched inside becomes `\1` in the replacement.
+    * `-?` introduces the optional minus sign. It matches either a single - or nothing. (Example matches: `-12`, `7`, `0`).
+    * `[0-9]+` ensures we have an integer of at least one digit.
+    * `.*` Refers to any characters (including none), to the end of the line. It “soaks up” everything after the leading integer: e.g., `(25)`, `°C`, etc.
+ 
+Putting it together, the regex only matches if the string starts with an optional minus + digits. Examples:  
+
+* `"22(25)"` match: group 1 = `22`, `.*` = `(25)`
+* `"-3°C"` match: group 1 = `-3`, `.*` = `°C`
+* `"abc"` no match (doesn’t start with a number), so no substitution occurs.
+
+Replacement part: `\1`  
+
+* It replaces the entire matched text with the content of capture group 1 (the leading integer). Examples:
+    * `"22(25)"` = `"22"`
+    * `"-3°C"` = `"-3"`
+    * `"abc"` = unchanged (because no match, so no substitution)
