@@ -1,1 +1,4 @@
+# ***Introduction***
 
+[fc_accuracy(generalised).sh](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/fc_accuracy(generalised).sh) is the evolution [fc_accuracy(single_day).sh](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/fc_accuracy(single_day).sh); indeed, its same code structure was implemented to calculate the accuracy of all the predictions reported in the file [rx_poc.log](https://github.com/MatteoMel1985/Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting_IBM-Data-Engineering/blob/main/ETL%20Daily%20Weather%20Forecast/rx_poc.log).  
+Since, in the version uploaded in this repository, `rx_poc.log` only has one line, the code suggested by the courser won't work; therefore, I had to adjust 
