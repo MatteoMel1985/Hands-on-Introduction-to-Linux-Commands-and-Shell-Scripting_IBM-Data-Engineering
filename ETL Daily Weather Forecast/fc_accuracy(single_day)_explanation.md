@@ -155,3 +155,33 @@ Follows the same logic.
 * `fi` marks the end of the `if` statement block.  
 
 ## ***6. Display the Forecast Classification***  
+
+```bash
+echo "Forecast accuracy is $accuracy_range"
+```
+
+* Prints the qualitative result for the user (for exmample, if `$accuracy` is between `-1` and `1`, will print “Forecast accuracy is excellent”).
+
+## ***7. Extract Date Components***  
+
+```
+row=$(tail -1 rx_poc.log)
+year=$(echo "$row" | cut -d " " -f1)
+month=$(echo "$row" | cut -d " " -f2)
+day=$(echo "$row" | cut -d " " -f3)
+```
+
+* `row=$(tail -1 rx_poc.log)` stores the entire last line in a variable.
+* Each `cut -d " " -fN` extracts the 1st, 2nd, and 3rd space-separated fields  (`year`, `month`, and `day`).
+
+## ***8. Append Results to Historical File***  
+
+```bash
+echo -e "$year\t$month\t$day\t$today_temp\t$yesterday_fc\t$accuracy\t$accuracy_range" >> historical_fc_accuracy.tsv
+```
+
+* `echo -e` enables interpretation of escape characters like `\t` (tab).
+* The line prints the results as a tab-separated row containing `year`,  `month`,  `day`,  `obs_temp`,  `fc_temp`,  `accuracy`,  and `accuracy_range`.
+* `>>` appends this new row to the end of the file `historical_fc_accuracy.tsv`.
+
+
