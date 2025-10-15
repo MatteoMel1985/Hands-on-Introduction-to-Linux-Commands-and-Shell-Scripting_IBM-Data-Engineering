@@ -7,3 +7,10 @@ The syntethic historical forecasting accuracy is stored in the file [synthetic_h
 wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-LX0117EN-Coursera/labs/synthetic_historical_fc_accuracy.tsv
 ```
 
+Following is the explanation of `weekly_stats.sh`.  
+
+# ***1. Shebang***  
+
+```bash
+#!/bin/bash
+```  
