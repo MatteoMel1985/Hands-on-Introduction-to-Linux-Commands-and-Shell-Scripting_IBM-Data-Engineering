@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# Take values from the last (data) line only
-# today_temp is token 4 (e.g., 22(25)) → keep only leading number
+# Take values from the last (data) line and keep only the leading number
+
 today_temp=$(tail -1 rx_poc.log | cut -d " " -f4 | sed -E 's/^(-?[0-9]+).*/\1/')
-
-# yesterday_fc is token 6 (e.g., 23(25)) → keep only leading number
 yesterday_fc=$(tail -1 rx_poc.log | cut -d " " -f6 | sed -E 's/^(-?[0-9]+).*/\1/')
-
 accuracy=$((yesterday_fc - today_temp))
+
 echo "accuracy is $accuracy"
 
 if [ -1 -le "$accuracy" ] && [ "$accuracy" -le 1 ]; then
