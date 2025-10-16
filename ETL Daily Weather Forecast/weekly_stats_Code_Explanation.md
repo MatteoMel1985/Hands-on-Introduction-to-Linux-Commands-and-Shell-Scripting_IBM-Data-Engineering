@@ -80,3 +80,23 @@ In our case, we have:
     * `[ ]` is an array indexing syntax.
     * `$i` is the index variable.
 * `done` marks the end of the for loop’s body.
+
+# ***5. Make values non-negative (attempt to take absolute value)***  
+
+```bash
+for i in {0..6}; do
+  if [[ ${week_fc[$i]} < 0 ]]
+  then
+    week_fc[$i]=$(((-1)*week_fc[$i]))
+  fi
+  # validate result:
+  echo ${week_fc[$i]}
+done
+```
+
+* `if [[ … ]]` is an extended test/condition syntax of Bash.
+* `[[ ${week_fc[$i]} < 0 ]]`
+    * `[[ … ]]` with `<` and `>` does lexicographic (string) comparison, not numeric. This means `"10" < "2"` is true as strings.
+* `then … fi` are conditional block delimiters.
+* `week_fc[$i]=$(((-1)*week_fc[$i]))`
+    *
