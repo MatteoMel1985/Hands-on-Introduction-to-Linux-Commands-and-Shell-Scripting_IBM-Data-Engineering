@@ -81,7 +81,7 @@ In our case, we have:
     * `$i` is the index variable.
 * `done` marks the end of the for loop’s body.
 
-# ***5. Make values non-negative (attempt to take absolute value)***  
+# ***5. Make Values Non-Negative (attempt to take absolute value***  
 
 ```bash
 for i in {0..6}; do
@@ -99,4 +99,54 @@ done
     * `[[ … ]]` with `<` and `>` does lexicographic (string) comparison, not numeric. This means `"10" < "2"` is true as strings.
 * `then … fi` are conditional block delimiters.
 * `week_fc[$i]=$(((-1)*week_fc[$i]))`
-    *
+    * `$(( … ))` is an arithmetic expansion in Bash. It works only with integers, so if the data are floats, this will fail or truncate.
+    * `(-1)*value` multiplies by −1 to flip the sign
+* `echo ${week_fc[$i]}` prints each transformed value.
+
+# ***6. Initialise Min/Max***  
+
+```bash
+minimum=${week_fc[1]}
+maximum=${week_fc[1]}
+```
+
+* Sets both `minimum` and `maximum` to the second array element.
+
+# ***7. Scan to Find Min/Max***  
+
+```bash
+for item in ${week_fc[@]}; do
+   if [[ $minimum > $item ]]
+   then
+     minimum=$item
+   fi
+   if [[ $maximum < $item ]]
+   then
+     maximum=$item
+   fi
+done
+```
+This block of code loops through all the elements of the array `week_fc`, compares each one against the current minimum and maximum values, and updates those variables if a smaller or larger value is found.
+
+* `for item in ${week_fc[@]}` iterates over each array element.
+    * `${array[@]}` expands to all elements of the array, separated by spaces.
+* `if [[ $minimum > $item ]]` is the first conditional. It checks whether a test inside `[[ … ]]` returns true.
+    * `[[ … ]]` is an advanced test command.
+    * `$minimum` expands to the current value of the variable minimum.
+    * `$item` expands to the current value from the loop.
+    * `>` is a string comparison operator
+    * `minimum=$item` assigns a new value to `minimum`. If the if test evaluates true, this line runs, updating minimum to the smaller of the two numbers.
+    * `fi` marks the end of this first conditional.
+* `if [[ $maximum < $item ]]
+   then
+     maximum=$item
+   fi` the second conditional is identical to the first, except it assigns a new value to `maximum` if `maximum` is `<` of the current value of the loop.
+
+# ***8. Print Results***  
+
+```bash
+echo "minimum absolute error = $minimum"
+echo "maximum absolute error = $maximum"
+```
+
+`echo "… $var"` prints a string with the variable expanded.
