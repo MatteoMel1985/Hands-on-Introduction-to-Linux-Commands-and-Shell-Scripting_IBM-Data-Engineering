@@ -55,4 +55,28 @@ for i in {0..6}; do
 done
 ```
 
-* `for i in {0..6}; do … done` — brace expansion {0..6} produces literal words 0 1 2 3 4 5 6,
+* `for i in {0..6}; do … done`: the loop is based on the following formula:
+
+```bash
+for variable in list; do
+    commands
+done
+```
+
+* `for` introduces a loop in Bash
+* `variable`: name of the loop variable (in our case is `i`).
+* `list` is a series of space-separated values to iterate over.
+* `do` marks the start of the loop body.
+* `done` marks the end of the loop body.
+
+So, for every value in the list, Bash assigns that value to the loop variable (i), executes the commands inside, and repeats until the list is exhausted.  
+In our case, we have:  
+
+* `{0..6}` is a brace expansion expression, a Bash feature that expands into a sequence of numbers or letters (`i=0, i=1, i=2, i=3, i=4, i=5, i=6`). Each iteration, the code inside the loop will run once for each of those values (a total of 7 times).
+* `echo ${week_fc[$i]}` is the loop body.
+    * `echo` is a built-in Bash command that prints its arguments to standard output (usually your terminal).
+    * `${ … }` are braces used to delimit a variable expansion clearly (so the shell knows exactly where the variable name ends).
+    * `week_fc` is the array name.
+    * `[ ]` is an array indexing syntax.
+    * `$i` is the index variable.
+* `done` marks the end of the for loop’s body.
