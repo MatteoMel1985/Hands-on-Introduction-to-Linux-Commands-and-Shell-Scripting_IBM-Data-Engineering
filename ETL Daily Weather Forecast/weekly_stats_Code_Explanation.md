@@ -46,7 +46,7 @@ week_fc=($(echo $(cat scratch.txt)))
 * `$(cat scratch.txt)` reads the file and substitutes its contents.
 
 
-# ***4. Validate contents (first pass)***  
+# ***4. Validate Contents***  
 
 ```bash
 # validate result:
@@ -81,7 +81,7 @@ In our case, we have:
     * `$i` is the index variable.
 * `done` marks the end of the for loop’s body.
 
-# ***5. Make Values Non-Negative (attempt to take absolute value***  
+# ***5. Make Values Non-Negative***  
 
 ```bash
 for i in {0..6}; do
