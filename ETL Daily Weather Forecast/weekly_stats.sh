@@ -31,5 +31,5 @@ for item in ${week_fc[@]}; do
    fi
 done
 
-echo "minimum ebsolute error = $minimum"
+echo "minimum absolute error = $minimum"
 echo "maximum absolute error = $maximum"
